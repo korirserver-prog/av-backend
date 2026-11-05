@@ -27,6 +27,7 @@ public TelegramService() {
 }
 
     public void sendDepositRequest(
+            String depositId,
             String name,
             String phone,
             int amount
@@ -39,12 +40,12 @@ public TelegramService() {
 
         Map<String, Object> approveButton = Map.of(
                 "text", "✅ APPROVE",
-                "callback_data", "approve_deposit"
+                "callback_data", "approve_deposit" + depositId
         );
 
         Map<String, Object> rejectButton = Map.of(
                 "text", "❌ REJECT",
-                "callback_data", "reject_deposit"
+                "callback_data", "reject_deposit" + depositId
         );
 
         Map<String, Object> keyboard = Map.of(
